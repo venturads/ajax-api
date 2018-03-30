@@ -3,19 +3,18 @@
     <head>
     </head>
     <body>
-        <p id="demo">_</p>
-        <form action="" method="get" id="frm">
-            <input type="text" id="fname" name="fname" placeholder="first name" />
-            <input type="button" id="btn" name="submit" value="Submit" />
-        </form>
+        <p id="outp">__</p>
         <script>
-            document.getElementById("frm").addEventListener('click', getinfo );
-            function getinfo(){
-                let output = frm.fname.value;
-                let wel = "Welcome: ";
-                document.getElementById('demo').innerHTML = wel + output;
-                
-            }
+            let data = "https://rubygems.org/api/v1/search.json?query=cucumber";
+            let getJson = new XMLHttpRequest();
+            getJson.open("GET", data);
+            getJson.onreadystatechange = function(){
+                if(getJson.readyState === XMLHttpRequest.DONE || getJson){
+                    let getdata = getJson.responseText;
+                    document.getElementById("outp").innerHTML = getdata;
+                }
+            };
+            getJson.send();
         </script>
     </body>
 </html>
