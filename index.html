@@ -9,10 +9,9 @@
             <input type="button" id="btn" name="submit" onClick="getinfo(form)" value="Submit" />
         </form>
         <script>
-            document.getElementById('demo').innerHTML = "test";
-            let ouput;
             function getinfo(form){
-                output = form;
+                let output = form.fname.value;
+                let wel = "Welcome: "; document.getElementById('demo').innerHTML = wel + output;
             }
         </script>
     </body>
