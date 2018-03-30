@@ -4,14 +4,17 @@
     </head>
     <body>
         <p id="demo">_</p>
-        <form action="" method="get">
+        <form action="" method="get" id="frm">
             <input type="text" id="fname" name="fname" placeholder="first name" />
-            <input type="button" id="btn" name="submit" onClick="getinfo(form)" value="Submit" />
+            <input type="button" id="btn" name="submit" value="Submit" />
         </form>
         <script>
-            function getinfo(form){
-                let output = form.fname.value;
-                let wel = "Welcome: "; document.getElementById('demo').innerHTML = wel + output;
+            document.getElementById("frm").addEventListener('click', getinfo );
+            function getinfo(){
+                let output = frm.fname.value;
+                let wel = "Welcome: ";
+                document.getElementById('demo').innerHTML = wel + output;
+                
             }
         </script>
     </body>
