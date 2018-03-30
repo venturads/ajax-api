@@ -6,6 +6,9 @@
         <p id="outp">__</p>
         <script>
             let data = "https://rubygems.org/api/v1/search.json?query=cucumber";
+            data = "https://learnwebcode.github.io/json-example/animals-1.json";
+            data = "http://www.tutorialspoint.com/json/data.json";
+            data = "https://codepen.io/jobs.json";
             let getJson = new XMLHttpRequest();
             getJson.open("GET", data);
             getJson.onreadystatechange = function(){
