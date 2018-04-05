@@ -4,21 +4,27 @@
     </head>
     <body>
         <p id="outp">__</p>
+        <p id="apiout">__</p>
+        <input type="button" id="btn" value="load api" />
         <script>
             let data = "https://rubygems.org/api/v1/search.json?query=cucumber";
             data = "https://learnwebcode.github.io/json-example/animals-1.json";
             data = "http://www.tutorialspoint.com/json/data.json";
             data = "https://codepen.io/jobs.json";
             let getJson = new XMLHttpRequest();
-            let getdata;
+            //let getdata;
             getJson.open("GET", data);
             getJson.onreadystatechange = function(){
-                if(getJson.readyState === XMLHttpRequest.DONE){
-                    getdata = JSON.parse(getJson.responseText);
+                if(getJson.readyState == 4){
+                    let getdata = JSON.parse(getJson.responseText);
                     document.getElementById("outp").innerHTML = getdata.jobs[0].company_name;
                 }
-            };
-            getJson.send();
+            }    
+            
+            document.getElementById("btn").addEventListener("click", function(){
+                getJson.send();    
+            })
+            
         </script>
     </body>
-</html>
+</html> 
