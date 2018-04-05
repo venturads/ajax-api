@@ -1,22 +1,25 @@
-<!DOCTYPT html>
+<!DOCTYPE html>
 <html>
     <head>
     </head>
     <body>
         <p id="outp">__</p>
+        <input type="button" id="btn" value="get data" />
         <script>
             let data = "https://rubygems.org/api/v1/search.json?query=cucumber";
-            data = "https://learnwebcode.github.io/json-example/animals-1.json";
-            data = "http://www.tutorialspoint.com/json/data.json";
+            //data = "https://learnwebcode.github.io/json-example/animals-1.json";
+            //data = "http://www.tutorialspoint.com/json/data.json";
             data = "https://codepen.io/jobs.json";
             let getJson = new XMLHttpRequest();
+            let getdata;
             getJson.open("GET", data);
             getJson.onreadystatechange = function(){
-                if(getJson.readyState === XMLHttpRequest.DONE || getJson){
-                    let getdata = getJson.responseText;
-                    document.getElementById("outp").innerHTML = getdata;
+                if(getJson.readyState === XMLHttpRequest.DONE){
+                    getdata = JSON.parse(getJson.responseText);
+                    document.getElementById("outp").innerHTML = getdata.jobs[0].company_name;
                 }
             };
+            
             getJson.send();
         </script>
     </body>
