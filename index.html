@@ -12,7 +12,7 @@
             let getJson = new XMLHttpRequest();
             getJson.open("GET", data);
             getJson.onreadystatechange = function(){
-                if(getJson.readyState === XMLHttpRequest.DONE || getJson){
+                if(getJson.readyState === XMLHttpRequest.DONE){
                     let getdata = getJson.responseText;
                     document.getElementById("outp").innerHTML = getdata;
                 }
