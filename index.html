@@ -16,7 +16,9 @@
             getJson.onreadystatechange = function(){
                 if(getJson.readyState === XMLHttpRequest.DONE){
                     getdata = JSON.parse(getJson.responseText);
-                    document.getElementById("outp").innerHTML = getdata.jobs[0].company_name;
+                    document.getElementById("outp").innerHTML = 
+                    "Company Name: " + getdata.jobs[0].company_name + "<br>" +
+                    "Title" + getdata.jobs[0].title;
                 }
             };
             
