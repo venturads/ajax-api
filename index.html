@@ -10,15 +10,16 @@
             //data = "https://learnwebcode.github.io/json-example/animals-1.json";
             //data = "http://www.tutorialspoint.com/json/data.json";
             data = "https://codepen.io/jobs.json";
+            //data = "https://kinder-mountie-68114.herokuapp.com/products.json";
             let getJson = new XMLHttpRequest();
             let getdata;
             getJson.open("GET", data);
             getJson.onreadystatechange = function(){
                 if(getJson.readyState === XMLHttpRequest.DONE){
                     getdata = JSON.parse(getJson.responseText);
-                    document.getElementById("outp").innerHTML = 
-                    "Company Name: " + getdata.jobs[0].company_name + "<br>" +
-                    "Title" + getdata.jobs[0].title;
+                    document.getElementById("outp").innerHTML = getdata.jobs[1].company_name;
+                    //"Company Name: " + getdata.jobs[0].company_name + "<br>" +
+                    //"Title" + getdata.jobs[0].title;
                 }
             };
             
